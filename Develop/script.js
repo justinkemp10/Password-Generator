@@ -1,14 +1,6 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate"); 
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
 function generatePassword() {
   var passwordLength;
@@ -21,6 +13,7 @@ function generatePassword() {
 
   var allowedCharacters = "";
   var allowLowercase;
+  
   allowLowercase = confirm("Allow lowercase characters?")
   if (allowLowercase) {
     // Then add all lowercase characters to the list of allowed characters.
@@ -51,12 +44,21 @@ function generatePassword() {
   // console.log(allowedCharacters);
   for (var i = 0; i < passwordLength; i++) {
     var random = Math.floor(Math.random() * allowedCharacters.length);
+    // console.log(password.value)
     password += allowedCharacters[random];
+   
   }
   return password;
 }
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
+  passwordText.value = password;
+
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
